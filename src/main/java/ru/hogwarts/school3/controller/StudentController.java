@@ -3,12 +3,17 @@ package ru.hogwarts.school3.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.hogwarts.school3.model.Student;
+import ru.hogwarts.school3.service.StudentService;
+
+import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/student")
 public class StudentController {
 
-    private final StudentService studentService;
+    private StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -24,8 +29,8 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+    public Integer addEmployee(@RequestBody Student student) {
+        return studentService.add(student);
     }
 
     @PutMapping("{id}")
@@ -36,10 +41,20 @@ public class StudentController {
         }
         return ResponseEntity.ok(foundStudent);
     }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity‹Void› ResponseEntity<Object> deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudent(id);
-        return ResponseEntity.ok().build();
+    @DeleteMapping ("{id}")
+    public void remove (@PathVariable int id) {
+        studentService.remove(id);
+    }
+        @GetMapping(path = "{id}")
+    public Student find (@PathVariable int id) {
+        studentService.findById(id);
+    }
+    @GetMapping
+    public Collection<Student> findAll(@RequestParam Map<String, Object> params) {
+        return studentService.findAll(params);
+    }
+    @GetMapping("byAgeBetween")
+    public Collection<Student> findByAgeBetween(@RequestParam int fromAge, @RequestParam int toAge) {
+        return studentService.findByAgeBetween(fromAge, toAge);
     }
 }
