@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 @Table(name = "student")
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String lastName;
     private String firstName;
@@ -33,14 +33,27 @@ public class Student {
     public String setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
     public String getFirstName() {
         return firstName;
     }
-    public String setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     public int getAge() {
         return age;
     }
 }
+
 
