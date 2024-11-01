@@ -10,7 +10,7 @@ import org.springframework.data.annotation.Id;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     private String lastName;
     private String firstName;
     private int age;
@@ -18,11 +18,11 @@ public class Student {
     @JoinColumn(name = "faculty_id")
     private Faculty faculty;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -31,9 +31,8 @@ public class Student {
     }
 
     public String setLastName(String lastName) {
-        this.lastName = lastName;
+        return lastName;
     }
-
     public Faculty getFaculty() {
         return faculty;
     }

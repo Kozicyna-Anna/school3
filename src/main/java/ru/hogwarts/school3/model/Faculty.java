@@ -11,7 +11,7 @@ import java.util.Collection;
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private long id;
     private String name;
     private String color;
 
@@ -34,7 +34,7 @@ public class Faculty {
     public void setName(String name) {
         this.name = name;
     }
-    public Integer getId() {
+    public long getId() {
         return id;
     }
     public void setId(Integer id) {
