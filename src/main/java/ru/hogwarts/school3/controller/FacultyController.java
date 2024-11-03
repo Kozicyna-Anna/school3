@@ -1,8 +1,12 @@
 package ru.hogwarts.school3.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.hogwarts.school3.model.Faculty;
+import ru.hogwarts.school3.service.FacultyService;
 
 import java.util.List;
+
+
 @RestController
 @RequestMapping("/faculty")
 

@@ -2,6 +2,8 @@ package ru.hogwarts.school3.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.hogwarts.school3.model.Faculty;
+import ru.hogwarts.school3.repository.FacultyRepository;
 
 import java.awt.*;
 
